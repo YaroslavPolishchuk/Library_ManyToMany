@@ -8,4 +8,5 @@ Noticed important thing that in DI configurations we should use one instance of 
 On top i have RESTful API on ASP.NET
 
 DB-first approach was used.
+
 SQL scripts for creation and filling DB included.
