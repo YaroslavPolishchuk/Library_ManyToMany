@@ -7,4 +7,5 @@ with database in safety in transactionScope. DB entites, data transfer entities,
 Noticed important thing that in DI configurations we should use one instance of DbContext.
 On top i have RESTful API on ASP.NET
 
-SQL scripts for creation and filling DB included
+DB-first approach was used.
+SQL scripts for creation and filling DB included.
