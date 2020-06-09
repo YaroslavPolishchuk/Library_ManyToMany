@@ -6,3 +6,5 @@ that gives 2 entities with navigation property. Also i'm using pattern UnitOfWor
 with database in safety in transactionScope. DB entites, data transfer entities, viewModels should mapped to each other with automapper.
 Noticed important thing that in DI configurations we should use one instance of DbContext.
 On top i have RESTful API on ASP.NET
+
+SQL scripts for creation and filling DB included
