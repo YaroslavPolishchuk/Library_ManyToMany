@@ -24,26 +24,26 @@ namespace Library.DTO.UnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        public void Save()
-        {
-            Transaction.Complete();
-        }
+        }      
 
         protected virtual void Dispose(bool disposing)
         {
             if (_disposed)
             {
-                return;
+                if (disposing)
+                {
+                    Transaction.Dispose();
+                }
+                _disposed = true;
             }
 
-            if (disposing)
-            {
-                Transaction.Dispose();
-            }
+           
 
             _disposed = true;
+        }
+        public void Save()
+        {
+            Transaction.Complete();
         }
     }
 }

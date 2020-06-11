@@ -7,5 +7,6 @@ namespace Library.DTO.UnitOfWork
     {
         BookViewModel AddBook(BookViewModel viewModel);
         BookViewModel RemoveBook(int id);
+        BookViewModel UpdateBook(BookViewModel viewModel);
     }
 }

@@ -34,5 +34,16 @@ namespace Library.DTO.UnitOfWork
             }
             return result;
         }
+
+        public BookViewModel UpdateBook(BookViewModel viewModel)
+        {
+            BookViewModel result = null;
+            using (_unitOfWork.Transaction = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.RequiresNew))
+            {
+                result = _unitOfWork.BookViewModelService.Update(viewModel);
+                _unitOfWork.Save();
+            }
+            return result;
+        }
     }
 }
