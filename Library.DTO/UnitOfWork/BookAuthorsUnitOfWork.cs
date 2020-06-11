@@ -35,15 +35,12 @@ namespace Library.DTO.UnitOfWork
         {
             if (_disposed)
             {
-                return;
+                if (disposing)
+                {
+                    Transaction.Dispose();
+                }
+                _disposed = true;
             }
-
-            if (disposing)
-            {
-                Transaction.Dispose();
-            }
-
-            _disposed = true;
         }
     }
 }

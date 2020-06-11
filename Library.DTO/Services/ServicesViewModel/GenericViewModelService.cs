@@ -22,18 +22,8 @@ namespace Library.DTO.ServicesViewModel
         public abstract TViewModel CreateWithChilds(TViewModel obj);
 
         public abstract TViewModel Delete(TKey id);
-        //{
-        //    var entityBook = _repository.GetAllData().SingleOrDefault(b => b.BookId == id);
-        //    _repository.Delete(dbEntity);
-        //    _repository.Save();
-        //    return _mapper.Map<TViewModel>(dbEntity);
-        //}
-        public TViewModel Update(TViewModel obj)
-        {
-            TEntity dbEntity = _mapper.Map<TEntity>(obj);
-            _repository.Update(dbEntity);
-            _repository.Save();
-            return _mapper.Map<TViewModel>(dbEntity);
-        }
+
+        public abstract TViewModel Update(TViewModel obj);
+        
     }
 }
