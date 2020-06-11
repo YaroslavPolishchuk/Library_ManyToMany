@@ -16,13 +16,15 @@ namespace LibraryApi.Controllers
     {
         private readonly IGenericService<BooksDTO, int> serviceBooks;
         private readonly IGenericViewModelService<BookViewModel, int> _serviceVMB;
-        private IBookAuthorsUnitOfWorkHandler bookAuthorsUnitOf;        
+        private IBookAuthorsUnitOfWorkHandler bookAuthorsUnitOf;
+        // public Library.DAL.DbModels.Library context { get; set; }
 
         public BooksController(IGenericService<BooksDTO, int> serviceBooks, IGenericViewModelService<BookViewModel, int> service, IBookAuthorsUnitOfWorkHandler bookAuthorsUnitOf)
         {
             this.serviceBooks = serviceBooks;
             _serviceVMB = service;
-            this.bookAuthorsUnitOf = bookAuthorsUnitOf;           
+            this.bookAuthorsUnitOf = bookAuthorsUnitOf;
+           // context = new Library.DAL.DbModels.Library();
         }
 
         [HttpGet]

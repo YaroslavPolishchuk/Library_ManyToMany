@@ -24,14 +24,11 @@ namespace Library.DTO.ServicesViewModel
             _repository.Add(book);
             _repository.Save();
             Books entityBook = _repository.GetAllData().SingleOrDefault(b => b.BookId == book.BookId);
-            if (obj.Authors != null)
+            foreach (AuthorsDTO author in obj.Authors)
             {
-                foreach (AuthorsDTO author in obj.Authors)
-                {
-                    entityBook.Authors.Add(repositoryAuthors.GetAllData().SingleOrDefault(a => a.AuthorId == author.AuthorId));
-                }
-                _repository.Save();
+                entityBook.Authors.Add(repositoryAuthors.GetAllData().SingleOrDefault(a => a.AuthorId == author.AuthorId));
             }
+            _repository.Save();
             return _mapper.Map<BookViewModel>(book);
         }
 
@@ -44,25 +41,6 @@ namespace Library.DTO.ServicesViewModel
             _repository.Save();
             return _mapper.Map<BookViewModel>(model);
         }
-        public override BookViewModel Update(BookViewModel obj)
-        {        
-            var authors = repositoryAuthors.GetAllData() as DbSet<Authors>;        
-            var books = _repository.GetAllData() as DbSet<Books>;
-
-            var changed=books.Include(b => b.Authors).Where(e => e.BookId == obj.BookId).FirstOrDefault();
-            changed.BookName = obj.BookName;
-            changed.PublishYear = obj.PublishYear;
-
-            changed.Authors.Clear();
-            foreach (var author in obj.Authors)
-            {
-                changed.Authors.Add(authors.Where(a=>a.AuthorId==author.AuthorId).FirstOrDefault());
-            }
-
-            _repository.Save();
-            return _mapper.Map<BookViewModel>(changed);            
-        }
-
 
         protected override IMapper GetMapper()
         {
@@ -83,7 +61,6 @@ namespace Library.DTO.ServicesViewModel
                 .ForMember(dest => dest.BookName, opt => opt.MapFrom(s => s.BookName))
                 .ForMember(dest => dest.PublishYear, opt => opt.MapFrom(s => s.PublishYear))
                 .ForMember(dest => dest.Authors, opt => opt.Ignore());
-                cfg.CreateMap<AuthorsDTO, Authors>().ReverseMap();
             }).CreateMapper();
         }
     }
