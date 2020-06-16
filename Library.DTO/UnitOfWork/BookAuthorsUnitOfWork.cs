@@ -35,9 +35,7 @@ namespace Library.DTO.UnitOfWork
                     Transaction.Dispose();
                 }
                 _disposed = true;
-            }
-
-           
+            }         
 
             _disposed = true;
         }

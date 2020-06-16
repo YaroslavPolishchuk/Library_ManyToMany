@@ -10,10 +10,5 @@ namespace Library.DAL.Repositories
         public AuthorRepository(DbContext context) : base(context)
         {
         }
-
-        public override void Update(Authors obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

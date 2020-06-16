@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -46,6 +47,9 @@ namespace GenericRepositories
             context.SaveChanges();
         }
 
-        public abstract void Update(T obj);
+        public void Update(T obj)
+        {
+            dbSet.AddOrUpdate(obj);
+        }
     }
 }

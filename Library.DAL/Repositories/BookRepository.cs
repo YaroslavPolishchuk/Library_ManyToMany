@@ -13,28 +13,6 @@ namespace Library.DAL.Repositories
         public BookRepository(DbContext context) : base(context)
         {
             dbSet = context.Set<Books>();
-        }
-
-        //public override void Delete(Books obj)
-        //{
-        //    foreach (var author in obj.Authors.ToList())
-        //    {
-        //        obj.Authors.Remove(author);                
-        //    }
-        //    dbSet.Remove(obj);
-        //}       
-
-        public override void Update(Books obj)
-        {
-            List<Authors> tmp = new List<Authors>(obj.Authors);
-            obj.Authors.Clear();
-            tmp.ForEach(x => obj.Authors.Add(x));
-            //foreach (var author in obj.Authors.ToList())
-            //{
-            //    obj.Authors.Remove(author);
-            //}
-            dbSet.AddOrUpdate(obj);
-
-        }
+        } 
     }
 }
