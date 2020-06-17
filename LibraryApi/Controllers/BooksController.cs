@@ -1,6 +1,7 @@
 ﻿using Library.DTO.ModelsDTO;
 using Library.DTO.ServicesDTO;
 using Library.DTO.ServicesViewModel;
+using Library.DTO.Storage.Validators;
 using Library.DTO.UnitOfWork;
 using Library.DTO.ViewModels;
 using System;
@@ -56,6 +57,7 @@ namespace LibraryApi.Controllers
         [HttpPost]
         public HttpResponseMessage Create([FromBody]BookViewModel obj)
         {
+            if (!ModelState.IsValid) return Request.CreateResponse(HttpStatusCode.BadRequest,new BookViewModelValidator().Validate(obj).Errors);
             try
             {                
                 return Request.CreateResponse(HttpStatusCode.OK , bookAuthorsUnitOf.AddBook(obj));                
