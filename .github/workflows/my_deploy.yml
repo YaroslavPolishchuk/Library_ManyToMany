@@ -1,4 +1,4 @@
-name: GH_Actions_CI
+name: GH-Actions-CI
 env:
  APPLICATION_NAME    : "MyFlask"
  PACKAGE_NAME        : "flask-deploy-var-${{github.sha}}"
