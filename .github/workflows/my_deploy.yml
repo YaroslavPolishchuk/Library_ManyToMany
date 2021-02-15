@@ -11,7 +11,7 @@ jobs:
   my_test:
     runs-on: ubuntu-latest 
     steps:
-      - name: Print Hello Message in test
+      -name: Print Hello Message in test
         run: echo "Hello world from test jobs"     
       -name: Execute few commands
        run: |
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: my_test
     steps:
-      - name: Print Hello Message
+      -name: Print Hello Message
         run: echo "Hello world from Deploy job"
       -name: Print deploy message
        run:
