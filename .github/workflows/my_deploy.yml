@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 jobs:
   my_test:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest  
     steps:     
      - name : Print Hello Message in testing
        run : echo "Hello world from test jobs"     
@@ -19,6 +19,8 @@ jobs:
         echo "Hello one"
         echo "Hello two"
         echo "Application name: ${{env.APPLICATION_NAME}}"
+     - name: List current folder
+       run: ls -la
       
   my_deploy:
     runs-on: ubuntu-latest
