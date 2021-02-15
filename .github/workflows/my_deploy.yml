@@ -1,7 +1,7 @@
 name: GH_Actions_CI
-env:
- APPLICATION_NAME    : "MyFlask"
- PACKAGE_NAME        : "flask-deploy-var-${{github.sha}}
+#env:
+ #APPLICATION_NAME    : "MyFlask"
+ #PACKAGE_NAME        : "flask-deploy-var-${{github.sha}}
  
 # Controls when the action will run. 
 on: 
@@ -10,24 +10,24 @@ on:
 jobs:
   my_test:
     runs-on: ubuntu-latest 
-    steps:
-      - name: Print Hello Message in testing
-         run: echo "Hello world from test jobs"     
+    steps:     
+     - name : Print Hello Message in testing
+       run : echo "Hello world from test jobs"     
          
-#      - name: Execute few commands
- #        run: |
-  #      echo "Hello one"
-   #     echo "Hello two"
-    #    echo "Application name: ${{env.APPLICATION_NAME}}"
+     - name: Execute few commands
+       run: |
+        echo "Hello one"
+        echo "Hello two"
+        echo "Application name: ${{env.APPLICATION_NAME}}"
       
   my_deploy:
     runs-on: ubuntu-latest
     needs: my_test
     steps:
-      -name: Print Hello Message
-        run: echo "Hello world from Deploy job"
-      -name: Print deploy message
-        run: echo "Deploy package is ${{env.PACKAGE_NAME}}"
+     - name : Print Hello Message     
+       run : echo "Hello world from Deploy job"
+     - name: Print deploy message
+       run: echo "Deploy package is ${{env.PACKAGE_NAME}}"
          
      
             
