@@ -1,7 +1,7 @@
 name: GH_Actions_CI
 env:
-APPLICATION_NAME    : "MyFlask"
-PACKAGE_NAME        : "flask-deploy-var-${{github.sha}}
+  APPLICATION_NAME    : "MyFlask"
+  PACKAGE_NAME        : "flask-deploy-var-${{github.sha}}
  
 # Controls when the action will run. 
 on: 
