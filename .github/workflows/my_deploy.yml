@@ -1,0 +1,22 @@
+name: GH_Actions_CI
+ 
+# Controls when the action will run. 
+on: 
+ push:
+    branches: [ master ]
+jobs:
+  my_test:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Print Hello Message
+        run: echo "Hello world from test jobs"     
+      
+  my_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello Message
+        run: echo "Hello world from Deploy job"
+     
+            
+    
+    
