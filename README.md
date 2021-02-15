@@ -11,3 +11,8 @@ DB-first approach was used.
 Used fluent validation.
 
 SQL scripts for creation and filling DB included.
+
+
+
+Status of last deployment:<br>
+<img src="https://github.com/adv4000/Library_ManyToMany/workflows/GH-Actions-CI/badge.svg?branch=master"><br>
