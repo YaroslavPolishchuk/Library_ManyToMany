@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 jobs:
   my_test:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latesdsft  
     steps:     
      - name : Print Hello Message in testing
        run : echo "Hello world from test jobs"     
