@@ -12,9 +12,5 @@ Used fluent validation.
 
 SQL scripts for creation and filling DB included.
 
-
-add test mark for pull
-
-
 Status of last deployment:<br>
 <img src="https://github.com/YaroslavPolishchuk/Library_ManyToMany/workflows/GH-Actions-CI/badge.svg?branch=master"><br>
